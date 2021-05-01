@@ -1,75 +1,4 @@
-base_de_datos = {
-    'NIF-A':{
-        'Nombre':'Juan Garza',
-        'Direccion':'Toluca',
-        'Telefono':437498249,
-        'Correo':'@gmail',
-        'Preferente': False
-        },
-    'NIF-B':{
-        'Nombre':'Daniel Campos',
-        'Direccion':'Metepec',
-        'Telefono':9989747243,
-        'Correo':'@hotmail',
-        'Preferente': False
-        },
-    'NIF-C':{
-        'Nombre':'Maria Orquesta',
-        'Direccion':'San Mateo',
-        'Telefono':6522985489,
-        'Correo':'@Platzi',
-        'Preferente': False
-        },
-    'NIF-D':{
-        'Nombre':'Pedro Infente',
-        'Direccion':'San Gaspar',
-        'Telefono':376944452,
-        'Correo':'@indeed',
-        'Preferente': True
-        },
-    'NIF-E':{
-        'Nombre':'Sarah Rosa',
-        'Direccion':'Jalisco',
-        'Telefono':387498752,
-        'Correo':'@toluca',
-        'Preferente': True
-        },
-    'NIF-C':{
-        'Nombre':'Jesus Salvador',
-        'Direccion':'Michoacan',
-        'Telefono':309598375982,
-        'Correo':'@jovenes',
-        'Preferente': True
-        },
-    'NIF-A':{
-        'Nombre':'Judas Bueno',
-        'Direccion':'Veracruz',
-        'Telefono':35892759823,
-        'Correo':'@youth',
-        'Preferente': False
-        },
-    'NIF-D':{
-        'Nombre':'Malcom Serie',
-        'Direccion':'Sonora',
-        'Telefono':398752892,
-        'Correo':'@malcom',
-        'Preferente': False
-        },
-    'NIF-B':{
-        'Nombre':'Reesse Orden',
-        'Direccion':'Yucatan',
-        'Telefono':375298752,
-        'Correo':'@dell',
-        'Preferente': True
-        },
-    'NIF-E':{
-        'Nombre':'Odin del Mes',
-        'Direccion':'Campeche',
-        'Telefono':3860980252,
-        'Correo':'@logitech',
-        'Preferente': True
-        },
-}
+base_de_datos = dict()
 
 while True:
     opc = input("""Ingrese una opcion: 
@@ -94,13 +23,22 @@ while True:
             datos_cliente['Preferente'] = False
         nif_cliente = input('Ingrese la NIF del cliente [NIF-Letra]: ')
         base_de_datos[nif_cliente] = datos_cliente
-        break
+        continue
     elif opc == '2':
         # Preguntar por el NIF del cliente y eliminar sus datos de la base de datos.
-        pass
+        nif_cliente = input('Ingrese la NIF del cliente [NIF-Letra]: ')
+        del base_de_datos[nif_cliente]
+        print(f'Cliente {nif_cliente} eliminado')
+        continue
     elif opc == '3':
         # Preguntar por el NIF del cliente y mostrar sus datos.
-        pass
+        nif_cliente = input('Ingrese la NIF del cliente [NIF-Letra]: ')
+        if nif_cliente in base_de_datos:
+            for key in base_de_datos[nif_cliente]:
+                print(key,'\t',base_de_datos[nif_cliente[key]])
+        else: 
+            print(f'Cliente {nif_cliente} no encontrado')
+            
     elif opc == '4':
         # Mostrar lista de todos los clientes de la base datos con su NIF y nombre.
         pass
